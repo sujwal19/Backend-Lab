@@ -6,19 +6,19 @@
 // console.log(process.env.LOGNAME);
 
 // pid
-console.log(process.pid);
+// console.log(process.pid);
 
 // cwd()
-console.log(process.cwd());
+// console.log(process.cwd());
 
 // title
-console.log(process.title);
+// console.log(process.title);
 
 // memoryUsage()
-console.log(process.memoryUsage());
+// console.log(process.memoryUsage());
 
 // uptime()
-console.log(process.uptime());
+// console.log(process.uptime());
 
 //
 process.on("exit", (code) => {
@@ -29,6 +29,6 @@ process.on("exit", (code) => {
 console.log(process.platform);
 
 // exit()
-process.exit(0);
+// process.exit(0);
 
 console.log("Hello from after exit");
