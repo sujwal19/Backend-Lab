@@ -4,21 +4,21 @@ import { handleError, handleSuccess } from "../utils";
 import { ToastContainer } from "react-toastify";
 
 const Home = () => {
-  const [loggedInUser, setloggedInUser] = useState(() => {
+  const [loggedInUser, setLoggedInUser] = useState(() => {
     const saved = localStorage.getItem("loggedInUser");
     return saved;
   });
-
-  useEffect(() => {
-    setloggedInUser(localStorage.getItem("loggedInUser"));
-  });
+  const [products, setProducts] = useState([]);
 
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("loggedInUser");
+
+    setLoggedInUser(null);
     handleSuccess("Logging out..");
+
     setTimeout(() => {
       navigate("/login");
     }, 1500);
@@ -34,7 +34,7 @@ const Home = () => {
       };
       const response = await fetch(url, headers);
       const result = await response.json();
-      console.log(result);
+      setProducts(result);
     } catch (err) {
       handleError(err);
     }
@@ -48,6 +48,16 @@ const Home = () => {
     <div>
       <h1>Hey {loggedInUser}</h1>
       <button onClick={handleLogout}>Logout</button>
+      <ol>
+        {products.map((item, idx) => {
+          return (
+            <li key={idx}>
+              <span>{item.name} :</span>
+              <span> {item.price}</span>
+            </li>
+          );
+        })}
+      </ol>
       <ToastContainer />
     </div>
   );
