@@ -3,10 +3,12 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import singleUpload from "./singleUpload.js";
 import multipleUploads from "./multipleUploads.js";
+import cloudinary from "cloudinary";
+import cors from "cors";
 import "colors";
 dotenv.config();
 const app = express();
-import cloudinary from "cloudinary";
+app.use(cors());
 
 const connectDB = async () => {
   try {
@@ -24,8 +26,8 @@ const connectDB = async () => {
 
 cloudinary.v2.config({
   cloud_name: process.env.CLOUD_NAME,
-  cloud_api: process.env.CLOUD_API,
-  cloud_secret: process.env.CLOUD_SECRET,
+  api_key: process.env.CLOUD_API,
+  api_secret: process.env.CLOUD_SECRET,
 });
 
 app.get("/ping", (req, res) => {
