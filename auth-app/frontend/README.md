@@ -1,16 +1,28 @@
-# React + Vite
+🚀 Simple Auth App (MERN)
+A basic Full-Stack application featuring User Authentication and Protected Routes.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠️ Tech Stack
+Frontend: React, React Router
 
-Currently, two official plugins are available:
+Backend: Node.js, Express.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Database: MongoDB
 
-## React Compiler
+Tools: JWT, CORS, Dotenv
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+📂 Project Overview
+Backend (Server)
+/auth: Routes for Signup and Login.
 
-## Expanding the ESLint configuration
+/products: A protected route to fetch data.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+/ping: A quick health check (returns "PONG").
+
+Database: Uses Mongoose to connect to MongoDB.
+
+Frontend (Client)
+Login/Signup: Pages to authenticate users.
+
+Home: A Private Route that only logged-in users can see.
+
+Refresh Handler: Keeps the user logged in even if they refresh the page.
